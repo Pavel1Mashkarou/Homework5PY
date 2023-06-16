@@ -1,16 +1,18 @@
-# This is a sample Python script.
+print("Введите фразу: ", end="")
+phrase = input()
+phrase = phrase.split()
+def count_letter(word):
+    count = 0
+    letters = "'аиеёоуыэюяАИЕЁОУЫЭЮЯ'"
+    for letter in word:
+        if letter in letters:
+            count += 1
+    return count
+def check_rhythm(phrase):
+    list = [count_letter(word) for word in phrase]
+    return list
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if (len(set(check_rhythm(phrase)))==1):
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
